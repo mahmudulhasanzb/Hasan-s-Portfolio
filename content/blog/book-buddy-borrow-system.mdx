@@ -1,0 +1,45 @@
+---
+title: "How I Built Book Buddy's Digital Borrow System"
+date: "2025-04-20"
+excerpt: "A look at designing the borrow state machine for a digital library — what worked, what didn't, and what I'd do differently."
+tags: ["Next.js", "MongoDB", "MERN Stack"]
+published: true
+---
+
+## The Problem
+
+Traditional library systems are opaque. You don't know if a book is available until you physically show up. I wanted to eliminate all of that friction with Book Buddy.
+
+## Designing the Borrow State Machine
+
+A book can be in one of four states: **Available**, **Borrowed**, **Reserved**, or **Overdue**. Each transition needs to be atomic to prevent double-borrowing.
+
+```js
+async function borrowBook(userId, bookId) {
+  const session = await mongoose.startSession()
+  session.startTransaction()
+  try {
+    const book = await Book.findOneAndUpdate(
+      { _id: bookId, status: 'available' },
+      { status: 'borrowed', borrowedBy: userId, dueDate: getDueDate() },
+      { new: true, session }
+    )
+    if (!book) throw new Error('Book unavailable')
+    await session.commitTransaction()
+    return book
+  } catch (err) {
+    await session.abortTransaction()
+    throw err
+  }
+}
+```
+
+The `findOneAndUpdate` with the status check as a condition is an optimistic lock — if two users try to borrow the same book simultaneously, only one wins.
+
+## What I Learned
+
+MongoDB transactions taught me a lot about atomicity. The pattern of checking a precondition inside the update query itself is something I now reach for automatically.
+
+## What I'd Do Differently
+
+Add a reservation queue with WebSocket notifications so users get pinged the moment a book becomes available, rather than checking back manually.
