@@ -451,7 +451,7 @@ function Experience() {
                 systems end-to-end. I'm ready to contribute from day one.
               </p>
               <Link
-                href="/#contact"
+                href="/contact"
                 style={{
                   display: 'inline-flex',
                   alignItems: 'center',
