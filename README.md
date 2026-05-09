@@ -1,36 +1,65 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Mahmudul Hasan's Portfolio v3
 
-## Getting Started
+A modern, high-performance portfolio website built with Next.js, React, and Tailwind CSS. This project showcases my work, blog posts, and professional journey.
 
-First, run the development server:
+## 🚀 Tech Stack
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- **Framework:** [Next.js 15](https://nextjs.org/) (App Router)
+- **Library:** [React 19](https://react.dev/)
+- **Styling:** [Tailwind CSS v4](https://tailwindcss.com/)
+- **Animations:** [Framer Motion](https://www.framer.com/motion/)
+- **Icons:** [React Icons](https://react-icons.github.io/react-icons/)
+- **Content Management:** [next-mdx-remote](https://github.com/hashicorp/next-mdx-remote) & [gray-matter](https://github.com/jonschlinkert/gray-matter)
+- **Deployment:** [Vercel](https://vercel.com/)
+
+## 📂 Project Structure
+
+```text
+mahmudul-portfolio-v3/
+├── app/                  # Next.js App Router (Pages, Layouts, CSS)
+│   ├── blog/             # Blog listing and post pages
+│   ├── contact/          # Contact page
+│   ├── projects/         # Project showcase pages
+│   ├── globals.css       # Global styling with Tailwind
+│   ├── layout.js         # Root layout
+│   └── page.js           # Homepage
+├── components/           # Reusable React components
+├── content/              # MDX files for blog posts and projects
+├── lib/                  # Utility functions and helper scripts
+├── public/               # Static assets (images, icons, etc.)
+├── next.config.mjs       # Next.js configuration
+├── package.json          # Project dependencies and scripts
+├── postcss.config.mjs    # PostCSS configuration
+└── tailwind.config.mjs   # Tailwind CSS configuration (if applicable)
 ```
 
+## 🛠️ Features
+
+- **Responsive Design:** Optimized for all screen sizes (Mobile, Tablet, Desktop).
+- **Dark/Light Mode:** Seamless theme switching.
+- **Dynamic Blog:** Built with MDX for flexible content creation.
+- **Micro-interactions:** Smooth animations using Framer Motion.
+- **SEO Optimized:** Meta tags and structured data for better search visibility.
+
+## 🏁 Getting Started
+
+### 1. Clone the repository
+```bash
+git clone https://github.com/mahmudulhasanzb/Hasan-s-Portfolio.git
+cd mahmudul-portfolio-v3
+```
+
+### 2. Install dependencies
+```bash
+npm install
+```
+
+### 3. Run the development server
+```bash
+npm run dev
+```
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## 📜 License
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This project is licensed under the MIT License.
