@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { FiGithub, FiDownload, FiMenu, FiX } from 'react-icons/fi'
+import { FiGithub, FiMenu, FiX, FiDownload } from 'react-icons/fi'
 
 const links = [
   { href: '/#about', label: 'About' },
@@ -101,9 +101,12 @@ export default function Navbar() {
                 color: pathname === href ? 'var(--purple-light)' : 'var(--text-2)',
               }}>{label}</Link>
             ))}
-            <a href="/resume.pdf" download style={{ display: 'inline-flex', alignItems: 'center', gap: 6, marginTop: '1rem', color: 'var(--purple-light)', fontSize: 13, textDecoration: 'none', border: '1px solid rgba(124,58,237,0.4)', borderRadius: 8, padding: '8px 16px', background: 'rgba(124,58,237,0.05)' }}>
-              <FiDownload size={13} /> Download Resume
-            </a>
+            <div style={{ marginTop: 'auto', paddingTop: '2rem', borderTop: '1px solid var(--border)' }}>
+              <p style={{ fontFamily: 'var(--font-mono)', fontSize: 11, color: 'var(--text-3)', marginBottom: 8 }}>mahmudulhasankk9@gmail.com</p>
+              <a href="/resume.pdf" download style={{ display: 'inline-flex', alignItems: 'center', gap: 6, marginTop: '1rem', color: 'var(--purple-light)', fontSize: 13, textDecoration: 'none', border: '1px solid rgba(124,58,237,0.4)', borderRadius: 8, padding: '8px 16px', background: 'rgba(124,58,237,0.05)' }}>
+                Download Resume
+              </a>
+            </div>
           </div>
         )}
       </header>

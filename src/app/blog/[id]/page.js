@@ -1,29 +1,30 @@
-import { getPostBySlug, getAllPosts } from '@/lib/blog'
+import { getPostById, getAllPosts } from '@/lib/blog'
 import { notFound } from 'next/navigation'
 import { MDXRemote } from 'next-mdx-remote/rsc'
 import Link from 'next/link'
 import { FiArrowLeft, FiClock } from 'react-icons/fi'
 
 export async function generateStaticParams() {
-  return getAllPosts().map(p => ({ slug: p.slug }))
+  return getAllPosts().map(p => ({ id: p.id }))
 }
 
 export async function generateMetadata({ params }) {
-  const post = getPostBySlug(params.slug)
+  const { id } = await params
+  const post = getPostById(id)
   if (!post) return {}
   return { title: post.title, description: post.excerpt || post.title }
 }
 
-export default function BlogPostPage({ params }) {
-  const post = getPostBySlug(params.slug)
+export default async function BlogPostPage({ params }) {
+  const { id } = await params
+  const post = getPostById(id)
   if (!post) notFound()
 
   return (
     <div style={{ maxWidth: 720, margin: '0 auto', padding: '110px 2rem 6rem' }}>
-      <Link href="/blog" style={{ display: 'inline-flex', alignItems: 'center', gap: 6, color: 'var(--text-3)', textDecoration: 'none', fontSize: 12, marginBottom: '3rem', fontFamily: 'var(--font-mono)', letterSpacing: '0.04em', textTransform: 'uppercase', transition: 'color 0.2s' }}
-        onMouseEnter={e => e.currentTarget.style.color = 'var(--purple-light)'}
-        onMouseLeave={e => e.currentTarget.style.color = 'var(--text-3)'}
-      ><FiArrowLeft size={13} /> Blog</Link>
+      <Link href="/blog" className="back-link" style={{ display: 'inline-flex', alignItems: 'center', gap: 6, color: 'var(--text-3)', textDecoration: 'none', fontSize: 12, marginBottom: '3rem', fontFamily: 'var(--font-mono)', letterSpacing: '0.04em', textTransform: 'uppercase', transition: 'color 0.2s' }}>
+        <FiArrowLeft size={13} /> Blog
+      </Link>
 
       {post.tags && (
         <div style={{ display: 'flex', gap: 6, marginBottom: 16 }}>
@@ -40,6 +41,7 @@ export default function BlogPostPage({ params }) {
 
       <article>
         <style>{`
+          .back-link:hover { color: var(--purple-light) !important; }
           article h2 { font-family: var(--font-display); font-weight: 700; font-size: 1.6rem; color: var(--text); margin: 2.5rem 0 1rem; }
           article h3 { font-family: var(--font-display); font-weight: 600; font-size: 1.3rem; color: var(--text); margin: 2rem 0 0.75rem; }
           article p { font-size: 15px; color: var(--text-2); line-height: 1.85; margin-bottom: 1.25rem; }

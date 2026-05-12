@@ -1,3 +1,9 @@
+// import profile from "@/assets/pp.jpg"
+import bookBuddyImg from '@/assets/images/book-buddy.png'
+import pixVaultImg from '@/assets/images/pix-vault.png'
+import portfolioImg from '@/assets/images/portfolio.png'
+
+
 export const siteConfig = {
   name: 'Mahmudul Hasan',
   role: 'MERN Stack Developer',
@@ -49,7 +55,7 @@ export const siteConfig = {
   twitter: 'https://twitter.com/mahmudulhasanzb',
   facebook: 'https://facebook.com/mahmudulhasanzb',
   openToWork: true,
-  photo: null, // drop your photo at public/profile.jpg to activate
+  photo: null, //'/images/profile.jpg',
   stats: [
     { value: '3', label: 'Projects Shipped' },
     { value: '10+', label: 'Technologies' },
@@ -73,7 +79,7 @@ export const experience = [] // empty — show "seeking first role" card
 
 export const projects = [
   {
-    slug: 'book-buddy',
+    id: 'book-buddy',
     title: 'Book Buddy',
     tagline: 'A seamless digital library experience.',
     description: 'Book Buddy digitizes the traditional library experience. Users can explore a vast collection of books, filter by categories, and borrow books digitally — eliminating the friction of physical library checkout entirely.',
@@ -85,12 +91,12 @@ export const projects = [
     tech: ['Next.js 15', 'React 19', 'JavaScript', 'Tailwind CSS 4', 'HeroUI', 'Better-Auth', 'MongoDB'],
     github: 'https://github.com/mahmudulhasanzb/A08-Book-Buddy.git',
     live: 'https://book-budy.vercel.app/',
-    image: '/images/book-buddy.png',
+    image: bookBuddyImg,
     color: '#3B82F6',
     colorDim: 'rgba(59,130,246,0.1)',
   },
   {
-    slug: 'pix-vault',
+    id: 'pix-vault',
     title: 'Pix Vault',
     tagline: 'The missing prompt library for AI image generation.',
     description: 'Pix Vault is a high-performance curation and inspiration platform for AI image generation. Instead of generating images itself, it serves as a curated vault where users find and save the perfect prompts for their creative projects.',
@@ -102,12 +108,12 @@ export const projects = [
     tech: ['Next.js 15', 'React 19', 'JavaScript', 'Tailwind CSS 4', 'HeroUI', 'Better-Auth', 'MongoDB'],
     github: 'https://github.com/mahmudulhasanzb/Pix-Vault.git',
     live: 'https://pix-vault-ai.vercel.app/',
-    image: '/images/pix-vault.png',
+    image: pixVaultImg,
     color: '#7C3AED',
     colorDim: 'rgba(124,58,237,0.1)',
   },
   {
-    slug: 'dev-portfolio',
+    id: 'dev-portfolio',
     title: 'Dev Portfolio',
     tagline: 'A high-performance personal portfolio with deep-space aesthetics.',
     description: 'This very portfolio — built as a project in its own right. A production-grade Next.js site featuring glassmorphism UI, Framer Motion animations, MDX blog, and a full contact system.',
@@ -119,7 +125,7 @@ export const projects = [
     tech: ['Next.js 15', 'React 19', 'JavaScript', 'Tailwind CSS 4', 'Framer Motion', 'MDX', 'Vercel'],
     github: 'https://github.com/mahmudulhasanzb',
     live: '/',
-    image: '/images/portfolio.png',
+    image: portfolioImg,
     color: '#10B981',
     colorDim: 'rgba(16,185,129,0.1)',
   },

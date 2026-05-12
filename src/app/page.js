@@ -550,11 +550,11 @@ function Projects() {
 
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '1.5rem' }}>
         {projects.map((project, i) => (
-          <motion.div key={project.slug} {...fadeUp(i * 0.1)}>
+          <motion.div key={project.id} {...fadeUp(i * 0.1)}>
             <div className="card-hover" style={{ background: 'var(--bg-card)', border: '1px solid var(--border)', borderRadius: 20, overflow: 'hidden', height: '100%', display: 'flex', flexDirection: 'column' }}>
               {/* Project image */}
               <div style={{ height: 180, background: `linear-gradient(135deg, ${project.colorDim}, rgba(9,9,11,0.8))`, position: 'relative', overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center', borderBottom: '1px solid var(--border)' }}>
-                <div style={{ width: '100%', height: '100%', backgroundImage: `url(${project.image})`, backgroundSize: 'cover', backgroundPosition: 'center', opacity: 0.7 }} />
+                <div style={{ width: '100%', height: '100%', backgroundImage: `url(${project.image?.src || project.image})`, backgroundSize: 'cover', backgroundPosition: 'center', opacity: 0.7 }} />
                 <div style={{ position: 'absolute', inset: 0, background: `linear-gradient(to bottom, transparent, ${project.colorDim})` }} />
                 <div style={{ position: 'absolute', top: 12, left: 14 }}>
                   <span style={{ fontFamily: 'var(--font-mono)', fontSize: 10, color: 'rgba(255,255,255,0.4)' }}>0{i + 1}</span>
@@ -576,7 +576,7 @@ function Projects() {
                   ))}
                 </div>
                 <div style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
-                  <Link href={`/projects/${project.slug}`} style={{ display: 'inline-flex', alignItems: 'center', gap: 5, fontSize: 12, fontWeight: 600, color: '#fff', textDecoration: 'none', background: 'rgba(255,255,255,0.07)', border: '1px solid rgba(255,255,255,0.1)', padding: '7px 14px', borderRadius: 8, transition: 'all 0.2s', flex: 1, justifyContent: 'center' }}
+                  <Link href={`/projects/${project.id}`} style={{ display: 'inline-flex', alignItems: 'center', gap: 5, fontSize: 12, fontWeight: 600, color: '#fff', textDecoration: 'none', background: 'rgba(255,255,255,0.07)', border: '1px solid rgba(255,255,255,0.1)', padding: '7px 14px', borderRadius: 8, transition: 'all 0.2s', flex: 1, justifyContent: 'center' }}
                     onMouseEnter={e => { e.currentTarget.style.background = project.colorDim; e.currentTarget.style.borderColor = `${project.color}50` }}
                     onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.07)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.1)' }}
                   >View Details <FiArrowRight size={12} /></Link>

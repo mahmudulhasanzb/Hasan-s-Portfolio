@@ -4,17 +4,19 @@ import Link from 'next/link'
 import { FiArrowLeft, FiGithub, FiExternalLink } from 'react-icons/fi'
 
 export async function generateStaticParams() {
-  return projects.map(p => ({ slug: p.slug }))
+  return projects.map(p => ({ id: p.id }))
 }
 
 export async function generateMetadata({ params }) {
-  const p = projects.find(p => p.slug === params.slug)
+  const { id } = await params
+  const p = projects.find(p => p.id === id)
   if (!p) return {}
   return { title: p.title, description: p.tagline }
 }
 
-export default function ProjectPage({ params }) {
-  const project = projects.find(p => p.slug === params.slug)
+export default async function ProjectPage({ params }) {
+  const { id } = await params
+  const project = projects.find(p => p.id === id)
   if (!project) notFound()
 
   const sections = [
