@@ -1,4 +1,4 @@
-// import profile from "@/assets/pp.jpg"
+import profile from '@/assets/images/Direct_Head_Shot_Portrait-removebg-preview.png';
 import bookBuddyImg from '@/assets/images/book-buddy.png';
 import pixVaultImg from '@/assets/images/pix-vault.png';
 import portfolioImg from '@/assets/images/portfolio.png';
@@ -54,7 +54,7 @@ export const siteConfig = {
   twitter: 'https://twitter.com/mahmudulhasanzb',
   facebook: 'https://facebook.com/mahmudulhasanzb',
   openToWork: true,
-  photo: null, //'/images/profile.jpg',
+  photo: profile,
   stats: [
     { value: '3', label: 'Projects Shipped' },
     { value: '10+', label: 'Technologies' },

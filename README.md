@@ -16,22 +16,30 @@ A modern, high-performance portfolio website built with Next.js, React, and Tail
 
 ```text
 mahmudul-portfolio-v3/
-├── app/                  # Next.js App Router (Pages, Layouts, CSS)
-│   ├── blog/             # Blog listing and post pages
-│   ├── contact/          # Contact page
-│   ├── projects/         # Project showcase pages
-│   ├── globals.css       # Global styling with Tailwind
-│   ├── layout.js         # Root layout
-│   └── page.js           # Homepage
-├── components/           # Reusable React components
-├── content/              # MDX files for blog posts and projects
-├── lib/                  # Utility functions and helper scripts
-├── public/               # Static assets (images, icons, etc.)
+├── content/              # MDX files for blog posts
+│   └── blog/             # Individual blog post files (.mdx)
+├── public/               # Static assets (PDFs, SVGs)
+├── src/                  # Main source code
+│   ├── app/              # Next.js App Router
+│   │   ├── blog/         # Blog listing and dynamic post pages
+│   │   ├── contact/      # Contact page
+│   │   ├── projects/     # Projects page
+│   │   ├── globals.css   # Global styles (Tailwind v4)
+│   │   ├── layout.js     # Root layout component
+│   │   └── page.js       # Homepage (Main Sections)
+│   ├── assets/           # Local assets (images, etc.)
+│   ├── components/       # UI Components
+│   │   ├── layout/       # Shared layout components (Navbar, Footer)
+│   │   ├── sections/     # Page-specific sections
+│   │   └── ui/           # Generic UI components
+│   └── lib/              # Utility functions and data fetchers
+│       ├── blog.js       # MDX processing logic
+│       └── data.js       # Static data/constants
 ├── next.config.mjs       # Next.js configuration
-├── package.json          # Project dependencies and scripts
-├── postcss.config.mjs    # PostCSS configuration
-└── tailwind.config.mjs   # Tailwind CSS configuration (if applicable)
+├── package.json          # Dependencies and scripts
+└── ...                   # Other config files (ESLint, Prettier, JSConfig)
 ```
+
 
 ## 🛠️ Features
 
