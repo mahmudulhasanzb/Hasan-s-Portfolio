@@ -325,7 +325,7 @@ function Hero() {
             </a>
 
             <a
-              href="/resume.pdf"
+              href="/Mahmudul_Hasan_Resume.pdf"
               download
               style={{
                 display: 'inline-flex',

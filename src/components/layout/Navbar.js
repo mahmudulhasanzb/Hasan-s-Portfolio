@@ -145,7 +145,7 @@ export default function Navbar() {
               <FiGithub size={18} />
             </a>
             <a
-              href="/resume.pdf"
+              href="/Mahmudul_Hasan_Resume.pdf"
               download
               style={{
                 display: 'inline-flex',
@@ -240,7 +240,7 @@ export default function Navbar() {
                 mahmudulhasankk9@gmail.com
               </p>
               <a
-                href="/resume.pdf"
+                href="/Mahmudul_Hasan_Resume.pdf"
                 download
                 style={{
                   display: 'inline-flex',
