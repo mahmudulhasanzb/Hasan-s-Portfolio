@@ -1,4 +1,5 @@
 'use client';
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -1445,6 +1446,15 @@ function Journey() {
 
 /* ── BLOG PREVIEW ──────────────────────────────────── */
 function BlogPreview() {
+  const [posts, setPosts] = useState([]);
+
+  useEffect(() => {
+    fetch('/api/posts')
+      .then((r) => r.json())
+      .then((data) => setPosts(Array.isArray(data) ? data.slice(0, 3) : []))
+      .catch(() => {});
+  }, []);
+
   return (
     <section style={{ padding: '6rem 2rem', maxWidth: 1100, margin: '0 auto' }}>
       <motion.div
@@ -1478,46 +1488,158 @@ function BlogPreview() {
         </Link>
       </motion.div>
       <motion.div {...fadeUp(0.1)}>
-        <div
-          style={{
-            background: 'var(--bg-card)',
-            border: '1px solid var(--border)',
-            borderRadius: 16,
-            padding: '2.5rem',
-            textAlign: 'center',
-          }}
-        >
+        {posts.length === 0 ? (
           <div
             style={{
-              width: 48,
-              height: 48,
-              borderRadius: 12,
-              background: 'rgba(124,58,237,0.1)',
-              border: '1px solid rgba(124,58,237,0.2)',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              margin: '0 auto 16px',
-              fontSize: 22,
+              background: 'var(--bg-card)',
+              border: '1px solid var(--border)',
+              borderRadius: 16,
+              padding: '2.5rem',
+              textAlign: 'center',
             }}
           >
-            ✍️
+            <div
+              style={{
+                width: 48,
+                height: 48,
+                borderRadius: 12,
+                background: 'rgba(124,58,237,0.1)',
+                border: '1px solid rgba(124,58,237,0.2)',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                margin: '0 auto 16px',
+                fontSize: 22,
+              }}
+            >
+              ✍️
+            </div>
+            <p
+              style={{
+                fontFamily: 'var(--font-display)',
+                fontWeight: 600,
+                fontSize: 20,
+                color: 'var(--text)',
+                marginBottom: 8,
+              }}
+            >
+              Posts coming soon.
+            </p>
+            <p style={{ fontSize: 14, color: 'var(--text-3)' }}>
+              Writing about Book Buddy, Pix Vault, and lessons learned.
+            </p>
           </div>
-          <p
-            style={{
-              fontFamily: 'var(--font-display)',
-              fontWeight: 600,
-              fontSize: 20,
-              color: 'var(--text)',
-              marginBottom: 8,
-            }}
-          >
-            Posts coming soon.
-          </p>
-          <p style={{ fontSize: 14, color: 'var(--text-3)' }}>
-            Writing about Book Buddy, Pix Vault, and lessons learned.
-          </p>
-        </div>
+        ) : (
+          <div style={{ display: 'grid', gap: '1rem' }}>
+            {posts.map((post) => (
+              <Link
+                key={post.id}
+                href={`/blog/${post.id}`}
+                style={{ textDecoration: 'none', display: 'block' }}
+              >
+                <article
+                  className="card-hover"
+                  style={{
+                    background: 'var(--bg-card)',
+                    border: '1px solid var(--border)',
+                    borderRadius: 16,
+                    padding: '1.75rem 2rem',
+                  }}
+                >
+                  <div
+                    style={{
+                      display: 'flex',
+                      justifyContent: 'space-between',
+                      alignItems: 'flex-start',
+                      gap: '1rem',
+                      flexWrap: 'wrap',
+                    }}
+                  >
+                    <div style={{ flex: 1, minWidth: 260 }}>
+                      {post.tags && (
+                        <div
+                          style={{
+                            display: 'flex',
+                            gap: 6,
+                            marginBottom: 10,
+                            flexWrap: 'wrap',
+                          }}
+                        >
+                          {post.tags.map((tag) => (
+                            <span
+                              key={tag}
+                              style={{
+                                fontFamily: 'var(--font-mono)',
+                                fontSize: 10,
+                                padding: '2px 8px',
+                                borderRadius: 40,
+                                background: 'rgba(124,58,237,0.1)',
+                                color: 'var(--purple-light)',
+                                border: '1px solid rgba(124,58,237,0.2)',
+                              }}
+                            >
+                              {tag}
+                            </span>
+                          ))}
+                        </div>
+                      )}
+                      <h3
+                        style={{
+                          fontFamily: 'var(--font-display)',
+                          fontWeight: 600,
+                          fontSize: 20,
+                          color: 'var(--text)',
+                          marginBottom: 8,
+                        }}
+                      >
+                        {post.title}
+                      </h3>
+                      {post.excerpt && (
+                        <p
+                          style={{
+                            fontSize: 14,
+                            color: 'var(--text-2)',
+                            lineHeight: 1.6,
+                          }}
+                        >
+                          {post.excerpt}
+                        </p>
+                      )}
+                    </div>
+                    <div
+                      style={{
+                        display: 'flex',
+                        flexDirection: 'column',
+                        alignItems: 'flex-end',
+                        gap: 6,
+                        flexShrink: 0,
+                      }}
+                    >
+                      <p
+                        style={{
+                          fontFamily: 'var(--font-mono)',
+                          fontSize: 11,
+                          color: 'var(--text-3)',
+                        }}
+                      >
+                        {post.date}
+                      </p>
+                      <p
+                        style={{
+                          fontFamily: 'var(--font-mono)',
+                          fontSize: 11,
+                          color: 'var(--text-3)',
+                        }}
+                      >
+                        {post.readingTime} min read
+                      </p>
+                    </div>
+                  </div>
+                </article>
+              </Link>
+            ))}
+          </div>
+        )}
       </motion.div>
     </section>
   );
