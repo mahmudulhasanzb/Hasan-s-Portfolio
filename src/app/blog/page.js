@@ -106,7 +106,7 @@ export default function BlogPage() {
         </div>
       ) : (
         <div style={{ display: 'grid', gap: '1rem' }}>
-          {posts.map(post => (
+          {posts.map((post) => (
             <Link
               key={post.id}
               href={`/blog/${post.id}`}
@@ -139,7 +139,7 @@ export default function BlogPage() {
                           flexWrap: 'wrap',
                         }}
                       >
-                        {post.tags.map(tag => (
+                        {post.tags.map((tag) => (
                           <span
                             key={tag}
                             style={{

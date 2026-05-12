@@ -29,10 +29,10 @@ export default function ProjectsPage() {
           letterSpacing: '0.04em',
           transition: 'color 0.2s',
         }}
-        onMouseEnter={e =>
+        onMouseEnter={(e) =>
           (e.currentTarget.style.color = 'var(--purple-light)')
         }
-        onMouseLeave={e => (e.currentTarget.style.color = 'var(--text-3)')}
+        onMouseLeave={(e) => (e.currentTarget.style.color = 'var(--text-3)')}
       >
         <FiArrowLeft size={13} /> BACK HOME
       </Link>
@@ -153,7 +153,7 @@ export default function ProjectsPage() {
                         marginBottom: 24,
                       }}
                     >
-                      {project.tech.map(t => (
+                      {project.tech.map((t) => (
                         <span
                           key={t}
                           style={{

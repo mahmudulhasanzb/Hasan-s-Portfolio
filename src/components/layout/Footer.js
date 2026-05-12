@@ -1,15 +1,42 @@
-'use client'
-import Link from 'next/link'
-import { FiGithub, FiLinkedin, FiMail, FiTwitter, FiFacebook, FiPhone } from 'react-icons/fi'
+'use client';
+import Link from 'next/link';
+import {
+  FiGithub,
+  FiLinkedin,
+  FiMail,
+  FiTwitter,
+  FiFacebook,
+  FiPhone,
+} from 'react-icons/fi';
 
 export default function Footer() {
   const socials = [
-    { href: 'https://github.com/mahmudulhasanzb', icon: <FiGithub size={17} />, label: 'GitHub' },
-    { href: 'https://linkedin.com/in/mahmudulhasanzb', icon: <FiLinkedin size={17} />, label: 'LinkedIn' },
-    { href: 'https://twitter.com/mahmudulhasanzb', icon: <FiTwitter size={17} />, label: 'Twitter' },
-    { href: 'https://facebook.com/mahmudulhasanzb', icon: <FiFacebook size={17} />, label: 'Facebook' },
-    { href: 'mailto:mahmudulhasankk9@gmail.com', icon: <FiMail size={17} />, label: 'Email' },
-  ]
+    {
+      href: 'https://github.com/mahmudulhasanzb',
+      icon: <FiGithub size={17} />,
+      label: 'GitHub',
+    },
+    {
+      href: 'https://linkedin.com/in/mahmudulhasanzb',
+      icon: <FiLinkedin size={17} />,
+      label: 'LinkedIn',
+    },
+    {
+      href: 'https://twitter.com/mahmudulhasanzb',
+      icon: <FiTwitter size={17} />,
+      label: 'Twitter',
+    },
+    {
+      href: 'https://facebook.com/mahmudulhasanzb',
+      icon: <FiFacebook size={17} />,
+      label: 'Facebook',
+    },
+    {
+      href: 'mailto:mahmudulhasankk9@gmail.com',
+      icon: <FiMail size={17} />,
+      label: 'Email',
+    },
+  ];
   return (
     <footer
       style={{
@@ -59,10 +86,10 @@ export default function Footer() {
                 rel="noopener noreferrer"
                 aria-label={label}
                 style={{ color: 'var(--text-3)', transition: 'color 0.2s' }}
-                onMouseEnter={e =>
+                onMouseEnter={(e) =>
                   (e.currentTarget.style.color = 'var(--purple-light)')
                 }
-                onMouseLeave={e =>
+                onMouseLeave={(e) =>
                   (e.currentTarget.style.color = 'var(--text-3)')
                 }
               >
@@ -101,10 +128,10 @@ export default function Footer() {
                   textDecoration: 'none',
                   transition: 'color 0.2s',
                 }}
-                onMouseEnter={e =>
+                onMouseEnter={(e) =>
                   (e.currentTarget.style.color = 'var(--purple-light)')
                 }
-                onMouseLeave={e =>
+                onMouseLeave={(e) =>
                   (e.currentTarget.style.color = 'var(--text-3)')
                 }
               >
