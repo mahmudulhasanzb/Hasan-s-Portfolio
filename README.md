@@ -1,4 +1,4 @@
-# Mahmudul Hasan's Portfolio v3
+# Mahmudul Hasan's Portfolio
 
 A modern, high-performance portfolio website built with Next.js, React, and Tailwind CSS. This project showcases my work, blog posts, and professional journey.
 
@@ -39,7 +39,6 @@ mahmudul-portfolio-v3/
 ├── package.json          # Dependencies and scripts
 └── ...                   # Other config files (ESLint, Prettier, JSConfig)
 ```
-
 
 ## 🛠️ Features
 

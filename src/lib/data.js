@@ -1,7 +1,7 @@
 import profile from '@/assets/images/Direct_Head_Shot_Portrait-removebg-preview.png';
 import bookBuddyImg from '@/assets/images/book-buddy.png';
 import pixVaultImg from '@/assets/images/pix-vault.png';
-import portfolioImg from '@/assets/images/portfolio.png';
+import keenKeeperImg from '@/assets/images/keenkeeper.png';
 
 export const siteConfig = {
   name: 'Mahmudul Hasan',
@@ -140,34 +140,33 @@ export const projects = [
     colorDim: 'rgba(124,58,237,0.1)',
   },
   {
-    id: 'dev-portfolio',
-    title: 'Dev Portfolio',
-    tagline:
-      'A high-performance personal portfolio with deep-space aesthetics.',
+    id: 'keenkeeper',
+    title: 'KeenKeeper',
+    tagline: 'Stay connected with the people who matter most.',
     description:
-      'This very portfolio — built as a project in its own right. A production-grade Next.js site featuring glassmorphism UI, Framer Motion animations, MDX blog, and a full contact system.',
+      'A personalized relationship management dashboard (PRM) designed to help you track, maintain, and deepen your most important connections through data-driven insights and interactive check-ins.',
     problem:
-      'Most developer portfolios look the same — generic templates with no personality. I wanted a portfolio that felt like a product, not a resume dump.',
+      'Managing many friendships can lead to "relationship decay" where we lose touch with important people simply because life gets busy and we lose track of the last time we connected.',
     approach:
-      'Designed the entire UI from scratch with a deep-space dark theme, electric-purple accent system, dot-grid backgrounds, and scroll-triggered animations. Every section was planned and iterated.',
+      'Developed a comprehensive dashboard featuring friend status tracking, interaction logging (calls, texts, video), and an analytics suite using Recharts to visualize communication patterns and habit consistency.',
     result:
-      'A fast, accessible, fully responsive portfolio with 10 routes, MDX blog, case study pages, and a contact form — all built with Next.js App Router.',
+      'A production-ready PRM tool that allows users to manage their social circles intentionally, resulting in more consistent communication and better relationship maintenance.',
     challenges:
-      'Balancing visual richness with performance was tricky. CSS-based glows and dot grids were used instead of canvas/WebGL to keep load times fast. Getting the glassmorphism navbar to look right across browsers required multiple iterations.',
+      'Implementing a flexible interaction logging system that handles various communication types while maintaining a clean, intuitive UI. Ensuring real-time data visualization remained performant on mobile devices.',
     futurePlans:
-      'Add a dark/light mode toggle, an interactive terminal easter egg, and connect the contact form to Resend for real email delivery.',
+      'Integration with Google Calendar for birthday reminders, automated "nudge" notifications for overdue connections, and AI-powered relationship health suggestions.',
     tech: [
       'Next.js 15',
       'React 19',
       'JavaScript',
-      'Tailwind CSS 4',
-      'Framer Motion',
-      'MDX',
-      'Vercel',
+      'Tailwind CSS',
+      'DaisyUI',
+      'Recharts',
+      'Lucide React',
     ],
-    github: 'https://github.com/mahmudulhasanzb',
-    live: '/',
-    image: portfolioImg,
+    github: 'https://github.com/mahmudulhasanzb/A07-Keen-Keeper-NextJS.git',
+    live: 'https://a07-keen-keeper.vercel.app/',
+    image: keenKeeperImg,
     color: '#10B981',
     colorDim: 'rgba(16,185,129,0.1)',
   },
