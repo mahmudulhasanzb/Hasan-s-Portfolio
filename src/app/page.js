@@ -806,7 +806,7 @@ function Education() {
   );
 }
 
-/* ── EXPERIENCE ────────────────────────────────────── */
+/* ── EXPERIENCE ───────────────── */
 function Experience() {
   return (
     <section
